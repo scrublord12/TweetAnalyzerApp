@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="em">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+            shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <title>Sentiment Tweet Analysis</title>
+</head>
+
+<body class="body">
+    <div class="container">
+        <div class="website-name">
+            <center>
+                <h1><strong>Sentiment Tweet Analysis</strong></h1>
+                <p>(AFIN-111 + Cornell Movie-Dialogs Corpus)</p>
+            </center>
+        </div>
+        <div class="tweet-input">
+            <form method="POST" action="/users/screenName">
+                <input id="us-input" type="text" name="screenName" class="form-control" placeholder="Enter a Twitter User...">
+                <center><label id="correct-tweet">Enter a twitter user to have
+                        their tweets analyzed.</label></center>
+                <div>
+                    <center><input id="analyze-button" type="submit" value="Analyze Button" class="btn
+                                btn-primary buttons"></center>
+                </div>
+            </form>
+        </div>
+        <div id="tweet-showcase" class="tweet-showcase">
+            <div>
+                <label>Analyzed Tweets-</label>
+            </div>
+            <div class="card">
+                <div id="tweets-from" class="card-header">
+                    Tweet from:
+                </div>
+                <div id="new-tweet" class="card-body">
+                    ***content not yet added***
+                </div>
+                <div id="tweet-link" class="card-footer">
+                    <a href="https://www.twitter.com/">Link to the Tweet</a>
+                </div>
+            </div>
+            <div>
+                <center>
+                    <button type="button" class="btn btn-primary back-button
+                            buttons">Last
+                        Tweet</button>
+                    <button type="button" class="btn btn-primary next-button
+                            buttons">Next
+                        Tweet</button>
+                </center>
+            </div>
+        </div>
+        <div class="analysis-results">
+            <div class="row">
+                <div class="col-sm-4 col-sm-4">
+                    <div class="card positive">
+                        <div class="card-header">
+                            Positive Tweets:
+                        </div>
+                        <div id="positive-tweets" class="card-body">
+                            <%= positiveTweets %>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-sm-4">
+                    <div class="card neutral">
+                        <div class="card-header">
+                            Neutral Tweets:
+                        </div>
+                        <div id="neutral-tweets" class="card-body">
+                            <%= neutralTweets %>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-sm-4">
+                    <div class="card negative">
+                        <div class="card-header">
+                            Negative Tweets:
+                        </div>
+                        <div id="negative-tweets" class="card-body">
+                            <%= negativeTweets %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="/js/script.js"></script>
+</body>
+<footer>
+    <center>
+        <p>Only the latest 200 tweets from an user can be retrieved and
+            analyzed at a time,</p>
+    </center>
+    <center>
+        <p>due to the request limit placed by twitter.</p>
+    </center>
+</footer>
+
+</html>

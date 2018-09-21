@@ -1,0 +1,105 @@
+.website-name {
+    color: rgb(98, 192, 255);
+    padding: 10px 0px 0px 0px;
+    margin-top: 25px;
+    display: block;
+    text-align: center;
+    font-size: 24px;
+
+}
+
+.website-name p {
+    font-size: 12px;
+    margin: 0px;
+}
+
+.container {
+    background: white;
+    margin: 25px 0px 25px 0px;
+    box-shadow: 0px 0px 18px 1px rgba(57, 106, 138, 1);
+
+}
+
+.tweet-showcase {
+    display: none;
+}
+
+.analysis-results {
+    display: none;
+}
+
+.body {
+    background: rgb(98, 192, 255);
+
+}
+
+.tweet-input {
+    padding: 20px;
+}
+
+.tweet-input label {
+    padding: 5px;
+    font-size: 16px;
+    color: rgb(64, 159, 223);
+}
+
+.btn-primary.buttons {
+    background: rgb(98, 192, 255);
+    justify-content: center;
+    border: none;
+}
+
+.tweet-showcase label {
+    color: rgb(64, 159, 223);
+    font-size: 20px;
+    padding: 0px 0px 5px 0px;
+}
+
+.tweet-showcase .card .card-header {
+    border-color: rgb(98, 192, 255);
+    border-width: 3px;
+}
+
+.tweet-showcase .card {
+    margin-bottom: 20px;
+}
+
+.next-button {
+    margin-left: 5px;
+}
+
+.back-button {
+    margin-right: 5px;
+}
+
+.analysis-results .card {
+    margin: 20px;
+}
+
+.positive .card-header {
+    border-color: rgb(132, 219, 105);
+    border-width: 3px;
+}
+
+.neutral .card-header {
+    border-color: rgb(138, 138, 138);
+    border-width: 3px;
+}
+
+.negative .card-header {
+    border-color: rgb(255, 139, 139);
+    border-width: 3px;
+}
+
+.btn-primary.buttons:hover {
+    background: rgb(69, 148, 216);
+}
+
+footer {
+    margin-top: 150px;
+    color: white;
+    background: rgb(69, 148, 216);
+    padding: 30px 50px 50px 50px;
+    font-size: 12px;
+    box-shadow: 0px 0px 5px 0px black;
+}
