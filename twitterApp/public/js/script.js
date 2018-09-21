@@ -18,14 +18,12 @@ var inputLog = function () {
 
 var user;
 inputBox.addEventListener("input", function () {
-    if (inputBox.value == ("@realDonaldTrump")) {
+    if (inputBox.value != ("")) {
 
         //console.log("yeet");
         userEntered = true;
-        document.getElementById("correct-tweet").innerHTML = "User Found";
+        
 
-    } else {
-        document.getElementById("correct-tweet").innerHTML = "User Not Found";
     }
     if (inputBox.value == ("") && buttonClicked) {
         buttonClicked = false;
