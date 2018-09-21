@@ -9,10 +9,15 @@ var twit = require('twit'),
 function getTweets(name) {
     twitter.get('statuses/user_timeline', {
         screen_name: name,
-        count: '1'
+        count: '10',
+        tweet_mode: 'extended'
+
     }, function (error, tweet, response) {
         var tt = tweet;
-        console.log(tweet[0].text);
+        for (var i = 0; i < tweet.length; i++) {
+            console.log(tweet[i].full_text + "------------------");
+        }
+
     });
 
 }
