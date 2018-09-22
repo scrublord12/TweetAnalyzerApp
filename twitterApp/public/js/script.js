@@ -22,7 +22,7 @@ inputBox.addEventListener("input", function () {
 
         //console.log("yeet");
         userEntered = true;
-        
+
 
     }
     if (inputBox.value == ("") && buttonClicked) {
@@ -37,5 +37,5 @@ function changeOtherStuff() {
 
     $("#tweet-showcase").hide().slideDown(500);
     $(".analysis-results").hide().slideDown(500);
-    document.getElementById("tweets-from").innerHTML = inputBox.value;;
+    document.getElementById("tweets-from").innerHTML = inputBox.value;
 }

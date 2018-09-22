@@ -5,9 +5,9 @@ var bodyParser = require("body-parser");
 
 var module1 = require('./twitter');
 
-var negativeTweets = "20%";
-var positiveTweets = "20%";
-var neutralTweets = "20%";
+var negativeTweets = "20";
+var positiveTweets = "20";
+var neutralTweets = "20";
 var tweet = {
     name: "",
     tweet: "",
@@ -33,9 +33,13 @@ app.get('/', function (req, res) {
 app.post("/users/screenName", function (req, res) {
     tweet.name = req.body.screenName;
     console.log(req.body.screenName);
+    tweetInfo = module1.getTweets(tweet.name);
 
     if (tweet.name != "") {
-        module1.getTweets(tweet.name);
+
+        positiveTweets = tweetInfo[0].positive;
+        negativeTweets = tweetInfo[0].negative;
+        neutralTweets = tweetInfo[0].neutral;
     }
 })
 

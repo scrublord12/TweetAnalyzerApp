@@ -7,19 +7,22 @@ var twit = require('twit'),
     });
 
 var Sentiment = require('sentiment');
-var sentiment = new Sentiment();
+var sentimentA = new Sentiment();
 
 var tweets = [];
+
+var sentimentScores;
 
 function getTweets(name) {
 
 
     twitter.get('statuses/user_timeline', {
         screen_name: name,
-        count: '200',
+        count: '10',
         tweet_mode: 'extended'
 
     }, function (error, tweet, response) {
+        tweets = [];
         //var tweetsArray = tweetObj[tweet.length];
         for (var i = 0; i < tweet.length; i++) {
             tweets.push({
@@ -29,38 +32,45 @@ function getTweets(name) {
                 score: ""
             })
         }
-        var sentimentScores=analyzeT();
-        //console.log(tweets);
-        
 
+
+        //console.log(tweets);
     });
+    //console.log(analyzeT());
+    //console.log(tweets);
+
+    return analyzeT();
 
 }
 
-function analyzeT(){
+function analyzeT() {
     //compare words from the tweetObj to the affin list
-    for(var i=0; i < tweets.length; i++){
-        tweets[i].score = sentiment.analyze(tweets[i].text).comparative;
+    for (var i = 0; i < tweets.length; i++) {
+        tweets[i].score = sentimentA.analyze(tweets[i].text).comparative;
     }
-    var positive=0;
-    var negative=0;
-    var neutral=0;
-    for(var i = 0; i < tweets.length; i++){
-        if(tweets[i].score > 0){
+    var positive = 0;
+    var negative = 0;
+    var neutral = 0;
+    for (var i = 0; i < tweets.length; i++) {
+        if (tweets[i].score > 0) {
             positive++;
-        }else if(tweets[i].score < 0){
+        } else if (tweets[i].score < 0) {
             negative++;
-        }else if(tweets[i].score == 0){
+        } else if (tweets[i].score == 0) {
             neutral++;
         }
     }
-    console.log(positive+ " "+negative+" "+neutral);
-    positive = (positive/tweets.length)*100;
-    negative = (negative/tweets.length)*100;
-    neutral = (neutral/tweets.length)*100;
-    console.log(positive+ " "+negative+" "+neutral);
-    console.log("positive: "+ positive + "% "+"neutral: " + neutral + "% " + "negative: " + negative + "%");
-    return {positive: positive, negative: negative, neutral: neutral};
+    //console.log(positive + " " + negative + " " + neutral);
+    positive = (positive / tweets.length) * 100;
+    negative = (negative / tweets.length) * 100;
+    neutral = (neutral / tweets.length) * 100;
+    //console.log(positive + " " + negative + " " + neutral);
+    console.log("positive: " + positive + "% " + "neutral: " + neutral + "% " + "negative: " + negative + "%");
+    return [{
+        positive: positive,
+        negative: negative,
+        neutral: neutral
+    }];
 }
 
 module.exports.getTweets = getTweets;
