@@ -140,6 +140,6 @@ async function tweetAnalyzeProcess(name){
     return analyzedData;
 }
 
-app.listen(3000, function () {
+app.listen(80, function () {
     console.log('Example app listening on port 3000!')
 })
