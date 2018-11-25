@@ -13,6 +13,10 @@
     margin: 0px;
 }
 
+.tweet-showcase{
+    display: none;
+}
+
 .container {
     background: white;
     margin: 25px 0px 25px 0px;
@@ -20,9 +24,7 @@
 
 }
 
-.tweet-showcase {
-    display: none;
-}
+
 
 .analysis-results {
     display: none;
